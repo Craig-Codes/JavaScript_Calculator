@@ -1,4 +1,4 @@
-JavaScript Replica CASIO MS80-A Calculator
+# JavaScript Replica CASIO MS80-A Calculator
 
 I built this project using Vanilla JS, utilisng Adobe Animate CC to create the HTML5 canvas.
 
