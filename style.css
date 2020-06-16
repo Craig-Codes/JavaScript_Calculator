@@ -4,4 +4,5 @@
     url("digital7-1e1z-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  unicode-range: U+000-5FF;
 }
