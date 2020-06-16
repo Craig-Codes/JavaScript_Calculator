@@ -3,6 +3,10 @@ function code() {
 
   myStage = stage.children[0]; // Allows stage.children[0] to be refered to as myStage.
 
+  // edit the text as font wasn't embedded into Animate
+  myStage.displayScreen_txt.font = "64px 'digital-7regular'";
+  myStage.displayScreenPlaceholder_txt.font = "64px 'digital-7regular'";
+
   var inputOne = 0; // Variable to save first input number from screen when an Operator is pressed.
   var inputTwo = 0; // Variable to save second input number
   var outputEquals = 0; // Variable to store the answer after equals is pressed.

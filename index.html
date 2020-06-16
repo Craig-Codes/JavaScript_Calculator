@@ -13,8 +13,9 @@
     <meta name="authoring-tool" content="Adobe_Animate_CC" />
     <title>Craig's Super Amazing Calculator</title>
     <!-- write your code here -->
-    <link rel="icon" href="Calculator2.jpg" type="image/x-icon" />
+    <link rel="icon" href="./images/calc_favicon.png" type="image/x-icon" />
     <!-- Added a calculator favicon to the webpage tab!-->
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
       #animation_container,
       #_preload_div_ {
@@ -24,6 +25,9 @@
         right: 0;
         top: 0;
         bottom: 0;
+      }
+      #canvas {
+        font-family: "Times New Roman", Times, serif;
       }
     </style>
     <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
@@ -45,10 +49,10 @@
         var comp = AdobeAn.getComposition("B451439FF916F342AF29EA7C59FB1FE6");
         var lib = comp.getLibrary();
         var loader = new createjs.LoadQueue(false);
-        loader.addEventListener("fileload", function(evt) {
+        loader.addEventListener("fileload", function (evt) {
           handleFileLoad(evt, comp);
         });
-        loader.addEventListener("complete", function(evt) {
+        loader.addEventListener("complete", function (evt) {
           handleComplete(evt, comp);
         });
         var lib = comp.getLibrary();
@@ -69,7 +73,7 @@
         for (i = 0; i < ssMetadata.length; i++) {
           ss[ssMetadata[i].name] = new createjs.SpriteSheet({
             images: [queue.getResult(ssMetadata[i].name)],
-            frames: ssMetadata[i].frames
+            frames: ssMetadata[i].frames,
           });
         }
         var preloaderDiv = document.getElementById("_preload_div_");
@@ -79,7 +83,7 @@
         stage = new lib.Stage(canvas);
         stage.enableMouseOver();
         //Registers the "tick" event listener.
-        fnStartAnimation = function() {
+        fnStartAnimation = function () {
           stage.addChild(exportRoot);
           createjs.Ticker.setFPS(lib.properties.fps);
           createjs.Ticker.addEventListener("tick", stage);
@@ -88,7 +92,7 @@
             var focalLength = 528.25;
             var projectionCenter = {
               x: lib.properties.width / 2,
-              y: lib.properties.height / 2
+              y: lib.properties.height / 2,
             };
             var scale = (totalDepth + focalLength) / focalLength;
             var scaleMat = new createjs.Matrix2D();
@@ -131,7 +135,7 @@
             if (parent === exportRoot) {
               var stageCenter = {
                 x: lib.properties.width / 2,
-                y: lib.properties.height / 2
+                y: lib.properties.height / 2,
               };
               projectionCenter.x = stageCenter.x;
               projectionCenter.y = stageCenter.y;
@@ -259,25 +263,50 @@
     </script>
     <!-- write your code here -->
   </head>
-  <body onload="init();" style="margin:0px;">
+  <body onload="init();" style="margin: 0px;">
     <div
       id="animation_container"
-      style="background-color:rgba(255, 255, 255, 1.00); width:1280px; height:720px"
+      style="
+        background-color: rgba(255, 255, 255, 1);
+        width: 1280px;
+        height: 720px;
+      "
     >
       <canvas
         id="canvas"
         width="1280"
         height="720"
-        style="position: absolute; display: none; background-color:rgba(255, 255, 255, 1.00);"
+        style="
+          position: absolute;
+          display: none;
+          background-color: rgba(255, 255, 255, 1);
+        "
       ></canvas>
       <div
         id="dom_overlay_container"
-        style="pointer-events:none; overflow:hidden; width:1280px; height:720px; position: absolute; left: 0px; top: 0px; display: none;"
+        style="
+          pointer-events: none;
+          overflow: hidden;
+          width: 1280px;
+          height: 720px;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          display: none;
+        "
       ></div>
     </div>
     <div
       id="_preload_div_"
-      style="position:absolute; top:0; left:0; display: inline-block; height:720px; width: 1280px; text-align: center;"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        height: 720px;
+        width: 1280px;
+        text-align: center;
+      "
     >
       <span
         style="display: inline-block; height: 100%; vertical-align: middle;"
